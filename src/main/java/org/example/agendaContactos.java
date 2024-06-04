@@ -7,10 +7,10 @@ import java.util.*;
  * @version 1.0 04/06/2024
  * Clase para agregar o quitar contactos
  */
-public class Agenda {
+public class agendaContactos {
     private List<Contacto> contacts; // Lista de Contacto
 
-    public Agenda() {
+    public agendaContactos() {
         this.contacts = new ArrayList<>();
     }
 
