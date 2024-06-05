@@ -7,16 +7,17 @@ import java.util.*;
  * @version 1.0 04/06/2024
  * Clase para agregar o quitar contactos
  */
-public class agendaContactos {
-    private List<Contacto> contacts; // Lista de Contacto
+public class agendaContactos implements InterfaceAgenda {
+    private List<Persona> contacts; // Lista de Contacto
 
     public agendaContactos() {
         this.contacts = new ArrayList<>();
     }
 
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 exists = true;
                 c.getPhones().add(phone);
@@ -25,16 +26,17 @@ public class agendaContactos {
         }
 
         if (!exists) {
-            Contacto newContact = new Contacto(name, phone);
+            Persona newContact = new Persona(name, phone);
             contacts.add(newContact);
         }
     }
 
+    @Override
     public void removeContact(String name) {
-        Iterator<Contacto> it = contacts.iterator();
+        Iterator<Persona> it = contacts.iterator();
 
         while (it.hasNext()) {
-            Contacto c = it.next();
+            Persona c = it.next();
 
             if (c.getName().equalsIgnoreCase(name)) {
                 it.remove();
@@ -42,8 +44,9 @@ public class agendaContactos {
         }
     }
 
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 List<String> phones = c.getPhones();
 
@@ -56,7 +59,8 @@ public class agendaContactos {
         }
     }
 
-    public List<Contacto> getContacts() {
+    @Override
+    public List<Persona> getContacts() {
         return this.contacts;
     }
 }

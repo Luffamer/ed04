@@ -8,13 +8,13 @@ import java.util.List;
  * @author Maria Davalos Martinez
  * @version 1.0 04/06/2024
  */
-class Contacto {
+class Persona {
     private String name;
     private List<String> phones;
 
 
 
-    public Contacto(String name, String phone) {
+    public Persona(String name, String phone) {
         this.setName(name);
         this.setPhones(new ArrayList<>());
         this.getPhones().add(phone);
